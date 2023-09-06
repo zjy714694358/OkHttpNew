@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Log.e("m2====",Arrays.toString(newShuzu));
             Mp(newShuzu);
             Log.e("mp===",Arrays.toString(newShuzu));
+
         }
     }
     private void sendRequestWithOkHttp() {
@@ -120,5 +121,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
     }
-    ///
+    //Log
+    public void M3(int[] m3){
+        for(int i=0;i<m3.length-1;i++){
+            for(int j=0;j<m3.length-i-1;j++){
+                if(m3[j]>m3[j+1]){
+                    int temp = m3[j];
+                    m3[j] = m3[j+1];
+                    m3[j+1] = temp;
+                }
+            }
+        }
+    }
 }
