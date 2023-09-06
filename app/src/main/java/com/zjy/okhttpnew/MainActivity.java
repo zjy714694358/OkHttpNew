@@ -3,16 +3,21 @@ package com.zjy.okhttpnew;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.zjy.okhttpnew.lv.LvActivity;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.net.HttpURLConnection;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
@@ -37,15 +42,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.send_request) {
-            sendRequestWithOkHttp();
-            int[] newShuzu = {1,5,6,2,3,7};
-            Mp(newShuzu);
-            Log.e("===", Arrays.toString(newShuzu));
-            //int[] m2 = {2,1,5,3,4,6,8};
-            M2(newShuzu);
-            Log.e("m2====",Arrays.toString(newShuzu));
-            Mp(newShuzu);
-            Log.e("mp===",Arrays.toString(newShuzu));
+//            sendRequestWithOkHttp();
+//            int[] newShuzu = {1,5,6,2,3,7};
+//            Mp(newShuzu);
+//            Log.e("===", Arrays.toString(newShuzu));
+//            //int[] m2 = {2,1,5,3,4,6,8};
+//            M2(newShuzu);
+//            Log.e("m2====",Arrays.toString(newShuzu));
+//            Mp(newShuzu);
+//            Log.e("mp===",Arrays.toString(newShuzu));
+//            List<String>list1 = new ArrayList<>();
+//            List<String>list2 = new ArrayList<>();
+//            list1.add("0");
+//            list1.add("2");
+//            list1.add("4");
+//            list2.add("1");
+//            list2.add("3");
+//            list2.add("5");
+//            Log.e("all==",list1.toString()+"===,==="+list2.toString());
+//            ListCr(list1,list2);
+
+            startActivity(new Intent(MainActivity.this, LvActivity.class));
 
         }
     }
@@ -122,15 +139,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
     //Log
-    public void M3(int[] m3){
-        for(int i=0;i<m3.length-1;i++){
-            for(int j=0;j<m3.length-i-1;j++){
-                if(m3[j]>m3[j+1]){
-                    int temp = m3[j];
-                    m3[j] = m3[j+1];
-                    m3[j+1] = temp;
-                }
-            }
+    public void ListCr(List<String>list1,List<String>list2){
+        for(int i=0;i<list2.size();i++){
+            list1.add(2*i+1,list2.get(i));
         }
+        Log.e("list1==",list1.toString());
     }
 }
